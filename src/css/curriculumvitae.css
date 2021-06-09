@@ -1,0 +1,57 @@
+.cvphoto{
+    border-radius: 20px;
+    height: 40px;
+    width: 40px;
+    margin-top: 20px;
+}
+
+.eduphoto{
+    
+    height: 40px;
+    width: 40px;
+    margin-top: 35px;
+}
+
+.ui.celled.grid{
+
+    border-radius: 5px;
+    margin-left: 0px;
+    margin-top: 1px;
+}
+
+
+#title{
+
+    padding: 10px 10px;
+    color: #666666;
+    font-size: 20px;
+    text-align: left;
+} 
+
+
+.eduinfo{
+
+    text-align: left;
+    
+}
+
+.cvinfo{
+    text-align: left;
+}
+
+
+.ui.grid{
+    border: 1px;
+    border-style: groove;
+    margin-top: 3px;
+    border-radius: 5px;
+    background-color: aliceblue;
+}
+
+.ui.grid .row{
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+
+
