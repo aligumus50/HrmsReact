@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import { Icon, Menu, Table } from "semantic-ui-react";
 import JobAdvertisementService from "../services/jobAdvertisementService";
 
@@ -29,7 +30,7 @@ export default function JobAdvertisementList() {
         <Table.Body>
           {jobAdvertisements.map((jobAdvertisement) => (
             <Table.Row key={jobAdvertisement.id}>
-              <Table.Cell>{jobAdvertisement.companyName}</Table.Cell>
+              <Table.Cell as={NavLink} to="/employeer/:id">{jobAdvertisement.companyName}</Table.Cell>
               <Table.Cell>{jobAdvertisement.positionName}</Table.Cell>
               <Table.Cell>{jobAdvertisement.numberOfOpenPositions}</Table.Cell>
               <Table.Cell>{jobAdvertisement.createdDate}</Table.Cell>

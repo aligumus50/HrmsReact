@@ -1,0 +1,21 @@
+.ui.segment.empimg{
+    
+    padding: 0px;
+    
+}
+
+.ui.segment.empsegmentfield{
+    width: 350px;
+    margin-left: 20px;
+    margin-top: -220px;
+}
+
+.ui.header .ui.label{
+    margin-left: 0px;
+    width: 100%;
+}
+
+.ui.button:hover{
+    background-color: darkmagenta;
+    color: white;
+}

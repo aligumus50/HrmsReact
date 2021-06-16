@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Container, Divider, Grid, Rating } from "semantic-ui-react";
+import { Button, Container, Divider, Grid, Rating } from "semantic-ui-react";
 import LangugaeService from "../services/languageService";
 
-export default function LangugageList() {
+export default function LanguageList({edit}) {
   const [languages, setLanguages] = useState([]);
 
   useEffect(() => {
@@ -69,6 +69,7 @@ export default function LangugageList() {
               </Grid.Column>
             </Grid.Row>
           ))}
+          <Button primary onClick={edit}>Düzenle</Button>
         </Grid>
       </Container>
     </div>

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Container, Grid, Image } from "semantic-ui-react";
+import { Button, Container, Grid, Image } from "semantic-ui-react";
 import CurriculumVitaeService from "../services/curriculumVitaeService";
 import "../css/curriculumvitae.css";
 import moment from "moment";
 import 'moment/locale/tr'
 
-export default function CurriculumVitae() {
+export default function CurriculumVitae({edit}) {
   const [curriculumVitaes, setCurriculumVitaes] = useState([]);
 
   useEffect(() => {
@@ -56,7 +56,7 @@ export default function CurriculumVitae() {
                   <Grid.Row>
                     <Grid.Column width={5}>
                       <div className="cvinfo">
-                        <span>{moment(curriculumVitae.createdDate).format('Do MMMM 2021') }</span>
+                        <span>{moment(curriculumVitae.createdDate).format('Do MMMM YYYY') }</span>
                       </div>
                     </Grid.Column>
                   </Grid.Row>
@@ -71,7 +71,9 @@ export default function CurriculumVitae() {
               </Grid.Column>
             </Grid.Row>
           ))}
+          <Button primary onClick={edit}>Düzenle</Button>
         </Grid>
+        
       </Container>
     </div>
   );

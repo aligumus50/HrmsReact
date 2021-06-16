@@ -1,0 +1,19 @@
+.ui.container{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.ui.link.menu .item:hover, .ui.menu .dropdown.item:hover, .ui.menu .link.item:hover, .ui.menu a.item:hover{
+
+    background-color: darkmagenta;
+    color: antiquewhite;
+}
+
+.ui.menu .active.item{
+    background-color: initial;
+}
+.ui.menu .active.item:hover{
+
+    background-color: darkmagenta;
+    color: antiquewhite;
+}

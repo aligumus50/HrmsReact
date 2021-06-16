@@ -7,6 +7,7 @@ import Navi from "../navi/Navi";
 
 import "../../css/footer.css";
 import Footer from "../common/Footer";
+import "alertifyjs/build/css/alertify.css";
 
 
 function App() {
@@ -17,8 +18,9 @@ function App() {
       <Container className="main">
         
         <Dashboard>
-          
+    
         </Dashboard>
+        
       </Container>
       
       <Footer className="footer"></Footer>

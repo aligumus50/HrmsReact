@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Container, Divider, Grid } from "semantic-ui-react";
+import { Button, Container, Divider, Grid } from "semantic-ui-react";
 import ExperienceService from "../services/experienceService";
 import moment from "moment";
 import "moment/locale/tr";
-export default function ExperienceList() {
+export default function ExperienceList({edit}) {
   const [experiences, setExperiences] = useState([]);
 
   useEffect(() => {
@@ -89,7 +89,9 @@ export default function ExperienceList() {
               </Grid.Column>
             </Grid.Row>
           ))}
+          <Button primary onClick={edit}>Düzenle</Button>
         </Grid>
+        
       </Container>
     </div>
   );

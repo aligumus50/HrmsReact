@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import {
   Container,
   Dropdown,
@@ -7,31 +8,39 @@ import {
 
 } from "semantic-ui-react";
 
+import "../../css/navi.css"
+
 export default function Navi() {
   return (
     <div>
-      <Menu inverted fixed="top">
+      <Menu  fixed="top" size="massive">
         <Container>
-          <Menu.Item as="a">
+          <Menu.Item as={NavLink} to="/">
             <Icon name="home" />
-            Home
-          </Menu.Item>
+            Ana Sayfa
+          </Menu.Item>      
           <Menu.Item as="a">
             <Icon name="search" />
-            Search Job
+            İş Ara
           </Menu.Item>
-
+          <Menu.Item as="a">
+            Kariyer Rehberi
+          </Menu.Item>
+          <Menu.Item as="a">
+            Pozisyon Rehberi
+          </Menu.Item>
           <Menu.Menu position="right">
-            <Dropdown item text="Candidate">
+          <Menu.Item as={NavLink} to="/candidate/signup">
+            Üye Ol
+          </Menu.Item>
+          <Menu.Item as="a">
+            Üye Girişi
+          </Menu.Item>
+            
+            <Dropdown item text="İşveren">
               <Dropdown.Menu>
-                <Dropdown.Item>Register Canidate</Dropdown.Item>
-                <Dropdown.Item>Login Canidate</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-            <Dropdown item text="Employeer">
-              <Dropdown.Menu>
-                <Dropdown.Item>Register Employeer</Dropdown.Item>
-                <Dropdown.Item>Login Employeer</Dropdown.Item>
+                <Dropdown.Item as={NavLink} to="/employer/signup">Üye Ol</Dropdown.Item>
+                <Dropdown.Item>Üye Girişi</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </Menu.Menu>

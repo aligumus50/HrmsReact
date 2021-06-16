@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Container, Divider, Grid } from "semantic-ui-react";
+import { Button, Container, Divider, Grid } from "semantic-ui-react";
 import EducationService from "../services/educationService";
 import "../css/curriculumvitae.css";
 import moment from "moment";
 import "moment/locale/tr";
-export default function EducationList() {
+
+export default function EducationList({edit}) {
   const [educations, setEducations] = useState([]);
 
   useEffect(() => {
@@ -98,6 +99,7 @@ export default function EducationList() {
               </Grid.Column>
             </Grid.Row>
           ))}
+          <Button primary onClick={edit}>Düzenle</Button>
         </Grid>
       </Container>
 

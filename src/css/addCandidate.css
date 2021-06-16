@@ -1,0 +1,12 @@
+.ui.grid.signup{
+    background-color: white;
+    border: 0px;
+    margin-top: 100px;
+}
+
+.ui.header>.ui.label{
+    background-color: darkmagenta;
+    color: white;
+    
+}
+

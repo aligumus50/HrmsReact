@@ -1,9 +1,21 @@
 .footer {
-  background-color: black;
-  color: antiquewhite;
-  margin-top: 25px;
+
+
+  background-color: darkmagenta;
   bottom: 0px;
-  height: 40px;
   width: 100%;
-  padding: 10px;
+
+}
+
+
+.ui.grid.footer {
+  background-color: darkmagenta;
+  border: 0px;
+  bottom: 0px;
+}
+
+.ui.inverted.stackable.divided.grid.footerbackground{
+  background-color: darkmagenta;
+  border: 0px;
+  bottom: 0px;
 }

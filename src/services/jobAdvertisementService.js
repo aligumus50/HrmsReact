@@ -18,4 +18,11 @@ export default class JobAdvertisementService {
       "http://localhost:8080/api/jobadvertisements/getJobAdvertisementDetailsByStatusAndByEmployeer?employeerId=23&status=false"
     );
   }
+
+  add(jobadvertisement){
+    return (axios.post("http://localhost:8080/api/jobadvertisements/add", jobadvertisement))
+    
+  }
+
+
 }

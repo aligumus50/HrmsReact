@@ -1,0 +1,20 @@
+.ui.dropdown .menu > .item:hover {
+  background-color: #41b883;
+  color: aliceblue;
+}
+
+.ui.fluid.dropdown {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  background-color: white;
+  border-bottom-style: solid;
+  border-radius: 0px;
+}
+
+.ui.active.button:hover {
+  background-color: #41b883;
+  background-image: none;
+  border-radius: 4px;
+  color: rgb(255 255 255 / 90%);
+}

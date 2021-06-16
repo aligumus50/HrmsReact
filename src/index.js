@@ -2,14 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./layouts/root/App";
-
+import {BrowserRouter} from 'react-router-dom'
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   //rendere 2 tane parametre gönderdik. (component ve root)
   //app componentini root a gönder demek.
   //app altınada componentleri oluşturak hiyerarşiyi oluşturuyoruz.
-  <App />,
+  //route işlemi bu appde desteklenecek.
+  <BrowserRouter><App /></BrowserRouter>,
   document.getElementById("root")
 );
 
