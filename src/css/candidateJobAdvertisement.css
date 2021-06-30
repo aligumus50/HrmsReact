@@ -1,0 +1,52 @@
+.ui.placeholder .header:not(:first-child):before,
+.ui.placeholder .image:not(:first-child):before,
+.ui.placeholder .paragraph:not(:first-child):before {
+  height: 0px;
+}
+
+.ui.grid.jobadvertisementgridbottominfo{
+   
+    margin:0px;
+    background: none;
+    border-style: none;
+
+}
+
+.ui.card>.content.cardgridinfo, .ui.cards>.card>.content.cardgridinfo{
+    padding: 0px;
+}
+
+.ui.celled.grid>.row>.column.labelworktime{
+    padding: 1px;
+}
+
+.ui.celled.grid>.row>.column.labelcreateddate{
+    padding:1px;
+}
+
+.ui.grid>.row.jobadvertisementgridbottominforowgrid{
+
+    padding: 0px;
+    margin:5px
+}
+
+.p-multiselect.p-multiselect.p-component.p-inputwrapper.multiselect-custom{
+    display: flex;
+}
+
+.ui.heart.rating.favori{
+    float: right;
+}
+
+.pageradiobtn{
+   
+   margin-top: 10px;
+    
+}
+
+.pageradiobtn label{
+    margin-left: 4px;
+    
+}
+
+

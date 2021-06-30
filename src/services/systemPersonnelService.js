@@ -10,5 +10,10 @@ export default class SystemPersonnelService {
     return axios.post("http://localhost:8080/api/systempersonnels/add",systempersonnel)
   }
 
+  getById(id){
+
+    return axios.get("http://localhost:8080/api/systempersonnels/getById?userId="+id)
+  }
+
 
 }

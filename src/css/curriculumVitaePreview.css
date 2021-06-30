@@ -1,0 +1,24 @@
+.addnewcvbtn{
+    margin-right: 3px;
+    padding-right: 2px;
+    font-size: large;
+}
+
+content.cvpreviewcontent .header{
+    margin-top: 25px;
+}
+
+
+.content.cvcontent{
+    
+    margin-top: 15px;
+}
+
+.content.cvcontent .description{
+    
+    margin-top: 4px;
+}
+
+.ui.tiny.circular.image.itemprofilphoto img{
+    border-radius: inherit;
+}

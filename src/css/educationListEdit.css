@@ -1,0 +1,33 @@
+.ui.orange.card.cveducationcardedit {
+    width: 90%;
+    position: relative;
+    margin: auto;
+  }
+
+  .ui.orange.card.cveducationcardedit div.content.cvheadertittleedit{
+    background-color: darkmagenta;
+    
+  }
+  
+  .ui.orange.card.cveducationcardedit div.content.cvheadertittleedit .header{
+    
+    color: white;
+    
+  }
+
+  .ui.grid.cveducationcardgridedit{
+    margin-left: 0px;
+    margin-right: 0px;
+    background:none;
+    border: none;
+    border-radius: 0px;
+}
+
+.university.large.circular.icon.educationiconedit{
+    margin-top: 0.9em;
+  }
+
+  .ui.equal.width.grid.cveducationequalgridedit{
+    background: none;
+    border-style: none;
+  }

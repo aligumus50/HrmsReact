@@ -2,9 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import {
   Button,
-  Divider,
   Form,
-  Grid,
   Header,
   Image,
   Label,
@@ -16,6 +14,7 @@ import EmployeerService from "../services/employeerService";
 import { useFormik } from "formik";
 import moment from "moment";
 import * as Yup from "yup";
+import handleErrorMessage from "../layouts/common/errorMessage";
 
 export default function AddEmployeer() {
   let employeerService = new EmployeerService();
@@ -26,7 +25,10 @@ export default function AddEmployeer() {
       .min(2, "Şirket adı en az 2 karakter olabilir")
       .required("Şirket adı girmelisiniz"),
     webSiteAddress: Yup.string()
-    .matches(/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi,"Web site adresinizi kontrol edin")
+      .matches(
+        /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi,
+        "Web site adresinizi kontrol edin"
+      )
       .required("Web site adresi girmelisiniz"),
     emailAddress: Yup.string()
       .email("Geçersiz e-posta adresi")
@@ -72,7 +74,9 @@ export default function AddEmployeer() {
 
       employeerService
         .add(employeer)
-        .then((result) => console.log(result.data.message));
+        .then((result) =>
+          result.data.success ? "" : handleErrorMessage(result.data.message)
+        );
     },
   });
   return (
@@ -124,8 +128,7 @@ export default function AddEmployeer() {
               </Label>
             ) : null}
             <Form.Input
-         
-            type="email"
+              type="email"
               labelPosition="left"
               placeholder="E-posta Adresi"
               //label="E-posta Adresi"

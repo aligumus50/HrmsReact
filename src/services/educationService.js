@@ -7,8 +7,14 @@ export default class EducationService{
         return axios.get("http://localhost:8080/api/educations/getall")
     }
 
-    getByCurriculumVitaeOrderByDate(){
+    add(education){
 
-        return axios.get("http://localhost:8080/api/educations/getByCurriculumVitae_IdOrderByEndDateDesc?curriculumvitaeId=6")
+        return axios.post("http://localhost:8080/api/educations/add",education)
+
+    }
+
+    getByCurriculumVitaeOrderByDate(curriculumvitaeId){
+
+        return axios.get("http://localhost:8080/api/educations/getByCurriculumVitae_IdOrderByEndDateDesc?curriculumvitaeId="+curriculumvitaeId)
     }
 }

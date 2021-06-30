@@ -1,0 +1,30 @@
+.ui.orange.card.cvlanguagecardedit {
+    width: 90%;
+    position: relative;
+    margin: auto;
+  }
+
+  .ui.orange.card.cvlanguagecardedit div.content.cvheadertittleedit{
+    background-color: darkmagenta;
+    
+  }
+  
+  .ui.orange.card.cvlanguagecardedit div.content.cvheadertittleedit .header{
+    
+    color: white;
+    
+  }
+
+  .ui.grid.cvlanguagecardgridedit{
+    margin-left: 0px;
+    margin-right: 0px;
+    background:none;
+    border: none;
+    border-radius: 0px;
+  }
+
+  .ui.equal.width.grid.cvlanguageequalgridedit{
+    background: none;
+    border-style: none;
+  }
+  

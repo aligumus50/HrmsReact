@@ -1,0 +1,33 @@
+.ui.orange.card.cvexperiencecard {
+    width: 90%;
+    position: relative;
+    margin: auto;
+  }
+
+  .ui.grid.cvexperiencecardgrid{
+    margin-left: 0px;
+    margin-right: 0px;
+    background:none;
+    border: none;
+    border-radius: 0px;
+}
+
+.ui.equal.width.grid.cvexperienceequalgrid{
+    background: none;
+    border-style: none;
+  }
+
+  .ui.orange.card.cvexperiencecard div.content.cvheadertittle{
+    background-color: darkmagenta;
+    
+  }
+  
+  .ui.orange.card.cvexperiencecard div.content.cvheadertittle .header{
+    
+    color: white;
+    
+  }
+
+  .building.large.circular.icon.experienceicon{
+    margin-top: 0.9em;
+  }

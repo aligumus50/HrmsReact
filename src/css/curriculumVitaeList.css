@@ -1,0 +1,51 @@
+.ui.orange.card.cvprofilecard {
+    width: 90%;
+    position: relative;
+    margin: auto;
+  }
+
+.ui.big.segment.cvheader{
+    height: 200px;
+    background-color: darkmagenta;
+}
+
+
+
+.ui.grid.cvprofilecardgrid{
+    margin-left: 0px;
+    margin-right: 0px;
+    background:none;
+    border: none;
+    border-radius: 0px;
+}
+
+.ui.card>.content.cvprofilecontent{
+
+    padding-top: 0.2px;
+    padding-bottom: 5px;
+}
+
+.ui.card>.content.cvprofilecontentname{
+
+    padding-top: 2px;
+    padding-bottom: 4px;
+}
+
+.ui.card.contentcard{
+    box-shadow: none;
+}
+
+.ui.card>.content{
+    border:none
+}
+
+.ui.orange.card.cvprofilecard div.content.cvheadertittle{
+    background-color: darkmagenta;
+    
+}
+
+.ui.orange.card.cvprofilecard div.content.cvheadertittle .header{
+    
+    color: white;
+    
+}

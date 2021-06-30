@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Icon, Menu, Table } from "semantic-ui-react";
 import JobAdvertisementService from "../services/jobAdvertisementService";
+import moment from "moment";
+import 'moment/locale/tr';
 
 export default function JobAdvertisementList() {
   const [jobAdvertisements, setJobAdvertisements] = useState([]);
@@ -33,8 +35,8 @@ export default function JobAdvertisementList() {
               <Table.Cell as={NavLink} to="/employeer/:id">{jobAdvertisement.companyName}</Table.Cell>
               <Table.Cell>{jobAdvertisement.positionName}</Table.Cell>
               <Table.Cell>{jobAdvertisement.numberOfOpenPositions}</Table.Cell>
-              <Table.Cell>{jobAdvertisement.createdDate}</Table.Cell>
-              <Table.Cell>{jobAdvertisement.applicationLastDate}</Table.Cell>
+              <Table.Cell>{moment(jobAdvertisement.createdDate).format("Do MMMM YYYY") }</Table.Cell>
+              <Table.Cell>{moment(jobAdvertisement.applicationLastDate).format("Do MMMM YYYY")}</Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>

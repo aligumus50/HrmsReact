@@ -1,0 +1,38 @@
+<Card color="orange" className="cvprofilecard" fluid>
+            <Card.Content header="Profil Bilgisi"></Card.Content>
+            <Grid className="cvprofilecard">
+              <Grid.Row>
+                <Grid.Column width="2">
+                  <Card.Content>
+                    <Image
+                      floated="left"
+                      size="medium"
+                      src={curriculumVitae.profilePhotoLink}
+                    />
+                  </Card.Content>
+                </Grid.Column>
+                <Grid.Column width="14">
+                  <Card><Card.Content>
+                    {curriculumVitae.candidate.firstName}
+                    {curriculumVitae.candidate.lastName}
+                  </Card.Content>
+                  <Card.Content description>
+                    {curriculumVitae.explanation}
+                  </Card.Content>
+                  <Card.Content description>
+                    {moment(curriculumVitae.createdDate).format("Do MMMM YYYY")}
+                  </Card.Content>
+                  <Card.Content>
+                  {curriculumVitae.candidate.emailAddress}
+                  </Card.Content></Card>
+                  
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
+
+            <Card.Content extra>
+              <Button primary onClick={edit} floated="right">
+                Düzenle
+              </Button>
+            </Card.Content>
+          </Card>

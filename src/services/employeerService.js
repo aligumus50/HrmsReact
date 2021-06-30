@@ -6,6 +6,10 @@ export default class EmployeerService {
   }
 
   add(employeer) {
-    return axios.post("http://localhost:8080/api/employeers/add", employeer);
+    return axios.post("http://localhost:8080/api/employeers/add",employeer);
+  }
+
+  getById(employeerId){
+    return axios.get("http://localhost:8080/api/employeers/getById?employeerId="+employeerId)
   }
 }

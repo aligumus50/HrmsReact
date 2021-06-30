@@ -1,0 +1,40 @@
+.ui.orange.card.cvprofilecardedit {
+    width: 90%;
+    position: relative;
+    margin: auto;
+  }
+
+  .ui.orange.card.cvprofilecardedit div.content.cvheadertittleedit{
+    background-color: darkmagenta;
+    
+}
+
+.ui.orange.card.cvprofilecardedit div.content.cvheadertittleedit .header{
+    
+    color: white;
+    
+}
+
+.ui.grid.cvprofilecardgridedit{
+    margin-left: 0px;
+    margin-right: 0px;
+    background:none;
+    border: none;
+    border-radius: 0px;
+}
+
+.ui.card.contentcardedit{
+    box-shadow: none;
+}
+
+.ui.card>.content.cvprofilecontentnameedit{
+
+    padding-top: 2px;
+    padding-bottom: 4px;
+}
+
+.ui.card>.content.cvprofilecontentedit{
+
+    padding-top: 0.2px;
+    padding-bottom: 5px;
+}

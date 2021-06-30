@@ -1,0 +1,33 @@
+.ui.orange.card.cvlanguagecard {
+  width: 90%;
+  position: relative;
+  margin: auto;
+}
+
+.ui.grid.cvlanguagecardgrid{
+  margin-left: 0px;
+  margin-right: 0px;
+  background:none;
+  border: none;
+  border-radius: 0px;
+}
+
+.ui.equal.width.grid.cvlanguageequalgrid{
+  background: none;
+  border-style: none;
+}
+
+.ui.orange.card.cvlanguagecard div.content.cvheadertittle{
+  background-color: darkmagenta;
+  
+}
+
+.ui.orange.card.cvlanguagecard div.content.cvheadertittle .header{
+  
+  color: white;
+  
+}
+
+.language.large.circular.icon.languageicon{
+  margin-top: 0.8em;
+}

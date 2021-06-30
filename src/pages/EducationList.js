@@ -1,23 +1,153 @@
 import React, { useEffect, useState } from "react";
-import { Button, Container, Divider, Grid } from "semantic-ui-react";
+import {
+  Button,
+  Card,
+  Divider,
+  Grid,
+  Icon,
+} from "semantic-ui-react";
 import EducationService from "../services/educationService";
 import "../css/curriculumvitae.css";
 import moment from "moment";
 import "moment/locale/tr";
+import "../css/educationList.css";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import updateToEducation from "../store/actions/educationActions"
+import { isEditedEducation } from "../store/actions/educationUpdatePageActions";
 
 export default function EducationList({edit}) {
+
+  const educationUpdatepage = useSelector(state => state.educationUpdatePage)
+
+  console.log(educationUpdatepage)
+
+  const dispatch = useDispatch()
+
+  let { id } = useParams();
+
   const [educations, setEducations] = useState([]);
 
   useEffect(() => {
     let educationService = new EducationService();
 
     educationService
-      .getByCurriculumVitaeOrderByDate()
+      .getByCurriculumVitaeOrderByDate(id)
       .then((result) => setEducations(result.data.data));
   }, []);
+
+  const handleUpdateToEducation=(education)=>{
+    dispatch(updateToEducation(education))
+  }
+
+ 
+const handleEditEducation=(status)=>{
+  dispatch(isEditedEducation(status))
+}
+  
+
   return (
     <div>
-      <Container>
+      <Card color="orange" fluid className="cveducationcard">
+        <Card.Content header="Eğitim Bilgileri" className="cvheadertittle" />
+        {educations.map((education) => (
+          <Grid className="cveducationcardgrid">
+            <Grid.Row>
+              <Grid.Column width="1">
+                <Card.Content>
+                  {/* <svg
+                    className={"eduphoto"}
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 512 512"
+                    height="5em"
+                    width="5em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M496 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H60c-6.627 0-12-5.373-12-12v-12H24a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 496 128zm-24 304H40c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM96 192v192H60c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-36V192h-64v192h-64V192h-64v192h-64V192H96z"></path>
+                  </svg> */}
+
+                  <Icon
+                    circular
+                    size="large"
+                    name="university"
+                    className="educationicon"
+                  />
+                </Card.Content>
+              </Grid.Column>
+              <Grid.Column width="15">
+                <Grid columns="equal" className="cveducationequalgrid">
+                  <Grid.Row>
+                    <Grid.Column width="5">
+                      <Card.Content>
+                        <Card.Meta>Üniversite</Card.Meta>
+                        {education.university.universityName}
+                      </Card.Content>
+                    </Grid.Column>
+
+                    <Grid.Column width="5">
+                      <Card.Content>
+                        <Card.Meta>Fakülte</Card.Meta>
+                        {education.school.schoolName}
+                      </Card.Content>
+                    </Grid.Column>
+
+                    <Grid.Column width="5">
+                      <Card.Content>
+                        <Card.Meta>Bölüm</Card.Meta>
+                        {education.studyDepartment.studyDepartmentName}
+                      </Card.Content>
+                    </Grid.Column>
+                  </Grid.Row>
+                  <Grid.Row>
+                    <Grid.Column width="5">
+                      <Card.Content>
+                        <Card.Meta>Başlangıç Tarihi</Card.Meta>
+                        {moment(education.startingDate).format("Do MMMM YYYY")}
+                      </Card.Content>
+                    </Grid.Column>
+                    <Grid.Column width="5">
+                      <Card.Content>
+                        <Card.Meta>Bitiş Tarihi</Card.Meta>
+                        {education.endDate != null ? (
+                          moment(education.endDate).format("Do MMMM YYYY")
+                        ) : (
+                          <span>Okuyor</span>
+                        )}
+                      </Card.Content>
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid>
+                <Card.Content extra>
+                  {/* <Button
+                    primary
+                 
+                    onClick={()=>handleUpdateToEducation(education)}
+                    floated="right"
+                  >
+                    Sayın Kullanıcı Önce Bu Tuşa Bas
+                  </Button>  */}
+                 
+                </Card.Content>
+                <Card.Content extra>
+                  <Button
+                    primary
+                    onClick={()=>{handleUpdateToEducation(education);handleEditEducation(false)}}
+                    floated="right"
+                  >
+                    Düzenle
+                  </Button> 
+                 
+                </Card.Content>
+                <Divider />
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        ))}
+      </Card>
+
+      {/*<Container>
         <Grid>
           <Grid.Row>
             <div id={"title"}>
@@ -26,20 +156,7 @@ export default function EducationList({edit}) {
           </Grid.Row>
           {educations.map((education) => (
             <Grid.Row key={education.id}>
-              <Grid.Column width={1}>
-                <svg
-                  className={"eduphoto"}
-                  stroke="currentColor"
-                  fill="currentColor"
-                  stroke-width="0"
-                  viewBox="0 0 512 512"
-                  height="5em"
-                  width="5em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M496 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H60c-6.627 0-12-5.373-12-12v-12H24a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 496 128zm-24 304H40c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM96 192v192H60c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-36V192h-64v192h-64V192h-64v192h-64V192H96z"></path>
-                </svg>
-              </Grid.Column>
+              <Grid.Column width={1}></Grid.Column>
               <Grid.Column width={15}>
                 <Grid>
                   <Grid.Row>
@@ -99,9 +216,8 @@ export default function EducationList({edit}) {
               </Grid.Column>
             </Grid.Row>
           ))}
-          <Button primary onClick={edit}>Düzenle</Button>
         </Grid>
-      </Container>
+                        </Container>*/}
 
       {/*  <Table celled selectable>
         <Table.Header>

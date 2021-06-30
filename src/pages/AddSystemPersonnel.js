@@ -5,13 +5,10 @@ import {
   Form,
   Grid,
   Header,
-  Icon,
   Image,
   Label,
-  Search,
   Segment,
 } from "semantic-ui-react";
-import systempersonnelimg from "../images/systempersonnel.jpg";
 import systempersonnelimg2 from "../images/systempersonnel2.jpg";
 import "../css/addSystemPersonnel.css";
 import { NavLink } from "react-router-dom";
@@ -19,7 +16,7 @@ import { useFormik } from "formik";
 import SystemPersonnelService from "../services/systemPersonnelService";
 import moment from "moment";
 import * as Yup from "yup";
-import alertify from "alertifyjs";
+import handleErrorMessage from "../layouts/common/errorMessage";
 
 export default function AddSystemPersonnel() {
   let systemPersonnelService = new SystemPersonnelService();
@@ -68,26 +65,13 @@ export default function AddSystemPersonnel() {
       };
 
       console.log(systemPersonnel);
-
-      let duration = 5;
-      let interval, msg;
       
       systemPersonnelService
         .add(systemPersonnel)
         .then((result) => (
             result.data.success
               ? ""
-              : (msg = alertify.error(
-                  result.data.message + " (" + duration + ") sn",
-                  5,
-                  function () {
-                    clearInterval(interval);
-                  }
-                )),
-  
-            (interval = setInterval(function () {
-              msg.setContent(result.data.message + " (" + --duration + ") sn");
-            }, 1000))
+              : handleErrorMessage(result.data.message)
           ));
     },
   });

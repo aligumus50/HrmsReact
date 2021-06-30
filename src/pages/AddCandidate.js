@@ -12,13 +12,15 @@ import {
 import "../css/addCandidate.css";
 import CandidateService from "../services/candidateService";
 import * as Yup from "yup";
-import { useState } from "react";
 import moment from "moment";
-import alertify from "alertifyjs";
 import "../css/alertify.css";
+import handleErrorMessage from "../layouts/common/errorMessage";
 
 export default function AddCandidate() {
   let candidateService = new CandidateService();
+
+  
+
   //yup ile validasyon
   const AddCandidateSchema = Yup.object().shape({
     firstName: Yup.string()
@@ -81,24 +83,12 @@ export default function AddCandidate() {
         curriculumVitaes: [],
       };
       console.log(candidate);
-      let duration = 5;
-      let interval, msg;
-
+     
       candidateService.add(candidate).then((result) =>
         (
           result.data.success
             ? ""
-            : (msg = alertify.error(
-                result.data.message + " (" + duration + ") sn",
-                5,
-                function () {
-                  clearInterval(interval);
-                }
-              ))
-
-          (interval = setInterval(function () {
-            msg.setContent(result.data.message + " (" + --duration + ") sn");
-          }, 1000))
+            : handleErrorMessage(result.data.message)
         )
       );
     },

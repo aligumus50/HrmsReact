@@ -2,12 +2,15 @@ import axios from "axios";
 
 export default class LangugaeService {
   
+  add(language){
+    return axios.post("http://localhost:8080/api/languages/add",language)
+  }
     getAll() {
     return axios.get("http://localhost:8080/api/languages/getall");
   }
 
-  getByCurriculumVitae(){
+  getByCurriculumVitae(curriculumvitaeId){
 
-    return axios.get("http://localhost:8080/api/languages/getByCurriculumVitae_Id?curriculumvitaeId=6")
+    return axios.get("http://localhost:8080/api/languages/getByCurriculumVitae_Id?curriculumvitaeId="+curriculumvitaeId)
   }
 }

@@ -1,6 +1,21 @@
 import axios from "axios";
 
 export default class JobAdvertisementService {
+
+  //dtosuz gelen liste
+  getAll(){
+
+    return axios.get("http://localhost:8080/api/jobadvertisements/getall")
+  }
+
+  getAllByPageable(pageNo, pageSize){
+    return axios.get("http://localhost:8080/api/jobadvertisements/getAllByPage?pageNo="+pageNo+"&pageSize="+pageSize)
+  }
+
+  getFindJobAdvertisementByCityId(...id){
+
+    return axios.get("http://localhost:8080/api/jobadvertisements/findJobAdvertisementByCityId?ids="+id+"&")
+  }
   getAllByStatus() {
     return axios.get(
       "http://localhost:8080/api/jobadvertisements/getJobAdvertisementDetailsByStatus?status=true"
@@ -23,6 +38,21 @@ export default class JobAdvertisementService {
     return (axios.post("http://localhost:8080/api/jobadvertisements/add", jobadvertisement))
     
   }
+
+  updateStatusAndEmployeerId(employeerId, id, status){
+    return axios.post("http://localhost:8080/api/jobadvertisements/updateStatusAndEmployeerId?employeerId="+employeerId+"&id="+id+"&status="+status)
+  }
+
+  getByEmployeerId(id){
+
+    return axios.get("http://localhost:8080/api/jobadvertisements/getByEmployeerId?employeerId="+id)
+  }
+
+
+
+
+
+
 
 
 }
