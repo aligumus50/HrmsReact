@@ -189,10 +189,10 @@ export default function CandidateJobAdvertisementList() {
   // };
 
   const categories = [
-    { name: "İkişer", key: "2" },
-    { name: "Üçer", key: "3" },
-    { name: "Dörder", key: "4" },
-    { name: "Beşer", key: "5" },
+    { name: "Onar", key: "10" },
+    { name: "Yirmişer", key: "20" },
+    { name: "Ellişer", key: "50" },
+    { name: "Yüzer", key: "100" },
   ];
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
   //console.log(selectedCategory.key)

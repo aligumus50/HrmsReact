@@ -2,7 +2,7 @@ import {IS_EDITED_LANGUAGE } from "../actions/languageUpdatePageActions";
 import { isEditedLanguage } from "../initialValues/languageValues";
 
 const initialState = {
-    isEditedExperience: isEditedLanguage,
+    isEditedLanguage: isEditedLanguage,
  
 };
 

@@ -16,6 +16,9 @@ import EditSystemPersonnel from "../../pages/EditSystemPersonnel";
 import SystemPersonnel from "../../pages/SystemPersonnel";
 import EditEmployeer from "../../pages/EditEmployeer";
 import Employeer from "../../pages/Employeer";
+import EmployeerProfileStatusForSystemPersonnel from "../../pages/EmployeerProfileStatusForSystemPersonnel";
+import EmployeerProfileStatusVerification from "../../pages/EmployeerProfileStatusVerification";
+
 
 
 export default function Dashboard() {
@@ -66,6 +69,11 @@ export default function Dashboard() {
 
       <Route exact path="/employeer/:id/" component={Employeer}></Route>
       <Route exact path="/employeer/:id/settings" component={EditEmployeer}></Route>
+
+      <Route exact path="/systempersonnel/:id/employeerprofilestatus" component={EmployeerProfileStatusForSystemPersonnel}></Route>
+
+      <Route exact path="/systempersonnel/:id/employeerprofilestatus/verification" component={EmployeerProfileStatusVerification}></Route>
+
 
      
 

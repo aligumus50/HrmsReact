@@ -3,6 +3,7 @@ import curriculumVitaeReducer from "./reducers/curriculumVitaeReducer";
 import curriculumVitaeUpdatePageReducer from "./reducers/curriculumVitaeUpdatePageReducer";
 import educationReducer from "./reducers/educationReducer";
 import educationUpdatePageReducer from "./reducers/educationUpdatePageReducer";
+import employeerProfileStatusReducer from "./reducers/employeerProfileStatusReducer";
 import employeerReducer from "./reducers/employeerReducer";
 import experienceReducer from "./reducers/experienceReducer";
 import experienceUpdatePageReducer from "./reducers/experienceUpdatePageReducer";
@@ -26,7 +27,8 @@ const rootReducer = combineReducers({
     jobAdvertisement : jobAdvertisementReducer,
     employeerUpdateProfile: employeerReducer,
     curriculumVitae: curriculumVitaeReducer,
-    curriculumVitaeUpdatePage:curriculumVitaeUpdatePageReducer
+    curriculumVitaeUpdatePage:curriculumVitaeUpdatePageReducer,
+    employeerProfileStatus:employeerProfileStatusReducer
 
 })
 

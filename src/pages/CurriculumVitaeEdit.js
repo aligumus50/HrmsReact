@@ -53,7 +53,7 @@ export default function CurriculumVitaeEdit({ save }) {
       profilePhotoLink:
         "https://res.cloudinary.com/dkydco7ta/image/upload/v1622822257/cky2nq8cb7owq2bj7k7n.png",
       status: "true",
-      createdDate: curriculumVitaeValues.createdDate,
+      createdDate: moment(curriculumVitaeValues.createdDate).format("YYYY-MM-Do"),
     },
 
     onSubmit: (values) => {

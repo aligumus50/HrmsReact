@@ -1,0 +1,19 @@
+{
+  "id": 27,
+  "emailAddress": "bbb1@hotmail.com",
+  "password_": "322222",
+  "createdDate": "2021-05-25T21:00:00.000+00:00",
+  "companyName": "aaa",
+  "webSiteAddress": "aaa@hotmail.com",
+  "telNumber": "22222",
+  "updateProfile": {
+    "companyName": "yenibirsirket",
+    "webSiteAddress": "yenibirsirket@hotmail.com",
+    "emailAddress": "yenibirsirket@hotmail.com",
+    "telNumber": "02120001122",
+    "password_": "322222",
+    "passwordAgain": "322222"
+  },
+  "systemVerified": true,
+  "verified": true
+}

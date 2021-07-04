@@ -1,18 +1,39 @@
-import React, { useState } from "react";
-import { Accordion, Button, Form, Grid, Icon, Label, Menu, Segment } from "semantic-ui-react";
+import React, { useEffect, useState } from "react";
+import {
+  Accordion,
+  Button,
+  Form,
+  Grid,
+  Icon,
+  Label,
+  Menu,
+  Segment,
+} from "semantic-ui-react";
 import moment from "moment";
 import { useFormik } from "formik";
 import EmployeerService from "../services/employeerService";
 import handleErrorMessage from "../layouts/common/errorMessage";
+import handleSuccessMessage from "../layouts/common/errorMessage";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-
+import EmployeerProfileStatusService from "../services/employeerProfileStatusService";
 export default function EditEmployeer() {
   let employeerService = new EmployeerService();
+
+  let employeerProfileStatusService = new EmployeerProfileStatusService();
+
+  const [employeerProfileStatus, setEmployeerProfileStatus] = useState([]);
+
   let { id } = useParams();
-  
-  const employeerValues = useSelector(state => state.employeerUpdateProfile)
-  
+
+  useEffect(() => {
+    employeerProfileStatusService
+      .getTopByEmployeer_IdOrderByIdDesc(id)
+      .then((result) => setEmployeerProfileStatus(result.data.data));
+  }, []);
+
+  const employeerValues = useSelector((state) => state.employeerUpdateProfile);
+
   console.log(employeerValues);
   //Formik useFormik hook kullanımı
   //form statetinde tutulan alanlar.
@@ -33,25 +54,27 @@ export default function EditEmployeer() {
     onSubmit: (values) => {
       console.log(values);
       let employeer = {
-        id:id,
+        id: id,
         companyName: values.companyName,
         webSiteAddress: values.webSiteAddress,
-        emailAddress: employeerValues.emailAddress,
+        emailAddress: values.emailAddress,
         telNumber: values.telNumber,
         password_: values.password_,
-        passwordAgain: values.passwordAgain,
         createdDate: employeerValues.createdDate,
         verified: "true",
         systemVerified: "true",
+        updateProfile: {},
         //jobAdvertisements: [],
       };
 
       console.log(employeer);
 
       employeerService
-        .add(employeer)
+        .update(employeer)
         .then((result) =>
-          result.data.success ? "" : handleErrorMessage(result.data.message)
+          result.data.success
+            ? handleSuccessMessage(result.data.message)
+            : handleErrorMessage(result.data.message)
         );
     },
   });
@@ -138,13 +161,12 @@ export default function EditEmployeer() {
                         </Label>
                       ) : null}
                       <Form.Input
-                        readOnly
                         type="email"
                         labelPosition="left"
                         placeholder="E-posta Adresi"
                         //label="E-posta Adresi"
                         id="emailAddress"
-                        //value={formik.values.emailAddress}
+                        value={formik.values.emailAddress}
                         onChange={formik.handleChange}
                       ></Form.Input>
                       {formik.touched.emailAddress &&
@@ -213,7 +235,12 @@ export default function EditEmployeer() {
                         </Label>
                       ) : null}
                     </Form.Field>
-                    <Button type="submit">Kayıt Ol</Button>
+
+                    {employeerProfileStatus?.status === false ? (
+                      <Button disabled>Onay Bekleniyor</Button>
+                    ) : (
+                      <Button type="submit">Onaya Gönder</Button>
+                    )}
                   </Form>
                 </Accordion.Content>
               </Accordion>
